@@ -1,0 +1,54 @@
+
+
+
+
+/* p {
+    font-family: 'paragraph';
+    font-size: 1rem;
+    color: yellow;
+} */
+
+.wp-block-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#right-menu {
+    display: none;
+}
+
+.content p{
+    font-size: 1rem;
+    text-align: left;
+}
+
+.content h2{
+    margin: 2.5rem 0rem 1rem 0rem;
+    font-size: 1.5rem;
+}
+
+.content img {
+    width: 100%;
+    max-width: 1000px;
+
+    object-fit: contain;
+}
+
+.content h4{
+    font-size: 2rem;
+    margin:5rem 0 2rem 0;
+}
+
+.content a{
+    text-decoration: underline;
+}
+
+@media (min-width: 1080px) {
+
+    .content p{
+        font-size: 1.2rem;
+    }
+}

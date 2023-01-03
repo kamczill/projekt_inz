@@ -1,18 +1,55 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
+const path = require(`path`)
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-exports.createPages = async ({ actions }) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
+  return graphql(`
+    {
+  allWpPost(sort: {date: ASC}) {
+    nodes {
+      title
+      date
+      author {
+        node {
+          name
+          avatar {
+            url
+          }
+        }
+      }
+      excerpt
+      content
+      slug
+    }
+  }
+}
+  `).then(result => {
+    //highlight-start
+    result.data.allWpPost.nodes.forEach(node => {
+      createPage({
+        path: `/blog/${node.slug}`,
+        component: path.resolve(`./src/pages/blog/blog-post.js`),
+        context: {
+          // This is the $slug variable
+          // passed to blog-post.js
+          slug: node.slug,
+        },
+      })
+    })
+    //highlight-end
   })
+}
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html" || stage === "develop-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /bad-module/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
 }
