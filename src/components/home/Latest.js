@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react'
 import '../../pages/blog/blog.css'
 import { gsap } from 'gsap'
-// import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import photo from '../../images/team.png'
 
@@ -42,9 +41,9 @@ const Article = ({img, title, date, desc, author, avatar, to}) => {
                     <Box bg='pink' px='2' py='1.5' alignItem='flex-start'>
                         <Text fontSize='xs' color='white' fontFamily='paragraph'>SEO</Text>
                         </Box>
-                    <Heading fontSize='xl' fontFamily='head' align='left'>
-                        {/* <AniLink fade to={`/blog${to}`}>{title}</AniLink> */}
-                    </Heading>
+                    <Text fontSize='xl' fontFamily='head' align='left'>
+                        <Link fade to={`/blog${to}`}>{title}</Link>
+                    </Text>
                     <Text align='left' color='#7B7485' fontFamily='paragraph'>Dodany: {date}</Text>
                     <Text fontFamily='paragraph'><div dangerouslySetInnerHTML={{ __html: desc}} /></Text>
                     <HStack>

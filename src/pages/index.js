@@ -17,8 +17,8 @@ export default function Home({ data }) {
         <Header/>
         <Features/>
         <Latest />
-        {/* <About /> */}
-        {/* <Newsletter />       */}
+        <About />
+        <Newsletter />      
       </Layout>
     </ParallaxProvider>
   )

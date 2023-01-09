@@ -70,7 +70,7 @@ const About = () => {
                     Nasza historia rozpoczęła się wraz z decyzją złożenia deklaracji na nasze studia. Od przejścia przez mury uczelni wiedzieliśmy, że chcemy w przyszłości być KIMŚ. Nasze starania i wrodzona nieustępliwość pozwoliły nam dotrwać do tego momentu.
                     </Text>
                     <Box as='button' px='5' py='1' bg='ocean' color='white' fontFamily='paragraph'>
-                        {/* <AniLink fade duration='0.3' to='/about'>Dowiedz się więcej</AniLink> */}
+                        <Link fade duration='0.3' to='/about'>Dowiedz się więcej</Link>
                         </Box>
                 </VStack>
                 </Box>

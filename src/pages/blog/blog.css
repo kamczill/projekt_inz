@@ -14,7 +14,9 @@
     align-items: center;
 }
 
-
+.rmp-results-widget{
+    display: none;
+}
 
 #right-menu {
     display: none;
@@ -44,6 +46,28 @@
 
 .content a{
     text-decoration: underline;
+}
+
+.content ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 1rem;
+    margin: 1rem 0;
+    margin-left: 3rem;
+}
+
+.content ol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    margin-left: 3rem;
+}
+
+.content li{
+    text-align: left;
 }
 
 @media (min-width: 1080px) {

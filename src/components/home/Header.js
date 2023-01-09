@@ -13,13 +13,15 @@ const Header = () => {
       
       let mm = gsap.matchMedia();
 
+      console.log(headerRef.current.children)
+
       let ctx = gsap.context(() => {
           gsap.registerPlugin(ScrollTrigger)
           gsap.fromTo(headerRef.current.children[0], {x: '400px'}, {x: '-=400px', duration: 1.1})
 
-          mm.add('(max-width: 766px)', () => {
-              gsap.fromTo(headerRef.current.children[1], {y: '+=400px', opacity: 0}, { scrollTrigger: { trigger: headerRef.current.children[0], start: 'top top'}, y: '0', opacity: 1, duration: .8, stagger: 1})
-          })
+          // mm.add('(max-width: 766px)', () => {
+          //     gsap.fromTo(headerRef.current.children[1], {y: '+=400px', opacity: 0}, { scrollTrigger: { trigger: headerRef.current.children[0], start: 'top top'}, y: '0', opacity: 1, duration: .8, stagger: 1})
+          // })
           
           mm.add('(min-width: 767px)', () => {
               gsap.fromTo(headerRef.current.children[1], {y: '+=400px', opacity: 0}, { y: '0', opacity: 1, duration: .8})

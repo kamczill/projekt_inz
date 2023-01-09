@@ -1,6 +1,6 @@
 import React, {useState, useRef, useLayoutEffect} from 'react'
 import {database} from '../../firebase'
-import {ref,push,child,update} from "firebase/database";
+import {collection, addDoc} from "firebase/firestore";
 import { Box, VStack, Text, Heading, Input, Flex, Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverHeader, PopoverBody } from '@chakra-ui/react'
 import { useFormik } from 'formik';
 import {gsap} from 'gsap'
@@ -18,26 +18,30 @@ const validate = values => {
 
 const Form = () => {
 
-  const [email, setEmail] = useState(null);
+  const [email, setEmail] = useState('');
+  const [isSend, setIsSend] = useState(false);
 
-
-  const handleSubmit = () => {
-    let obj = {
-      email: email
+  const handleSubmit = (values) => {
+    try {
+      console.log(values)
+      if (!isSend) {
+        const docRef = addDoc(collection(database, "newsletter"), {
+          email: values.email
+        });
+      }
+      setIsSend(true);
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
-    const newPostKey = push(child(ref(database), 'posts')).key;
-    const updates = {};
-    updates['/' + newPostKey] = obj;
-    return update(ref(database), updates);
   }
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      email: ''
     },
     validate,
-    onSubmit: () => {
-      handleSubmit();
+    onSubmit: (values) => {
+      handleSubmit(values);
     },
   })
 

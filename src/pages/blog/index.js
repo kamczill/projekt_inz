@@ -22,7 +22,7 @@ const Article = ({img, title, date, desc, author, avatar, to}) => {
                     <Box bg='pink' px='2' py='1.5' alignItem='flex-start'>
                         <Text fontSize='xs' color='white' fontFamily='paragraph'>SEO</Text>
                         </Box>
-                    <Heading fontSize='xl' fontFamily='head'>
+                    <Heading fontSize='xl' fontFamily='head' align='left'>
                         <Link fade duration='0.3' to={`${to}`}>{title}</Link>
                     </Heading>
                     <Text align='left' color='#7B7485' fontFamily='paragraph'>Dodany: {date}</Text>

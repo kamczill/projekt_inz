@@ -27,7 +27,7 @@ const Footer = () => {
                 Blog o SEO © 2022 All Right Reserved
             </Text>
         </Flex>
-        <Flex direction={['column', 'row']} gap='20' justify={['center']} align={['center', 'center', 'flex-start', 'flex-start', 'flex-start']} w='100%'>
+        <Flex direction={['column', 'row']} gap='20' justify={['center']} align={['center', 'center', 'flex-start', 'flex-start', 'flex-start']}>
             <Flex direction='column' align='center' gap='1'>
                 <Heading mb='4'>Twórcy</Heading>
                 <Link>Kamil Chrobak</Link>
