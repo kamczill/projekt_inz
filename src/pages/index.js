@@ -8,6 +8,7 @@ import Features from "../components/home/Features"
 import Latest from "../components/home/Latest"
 import About from "../components/home/About"
 import Newsletter from "../components/home/Newsletter"
+// // WP Gatsby - Wersja 2.3.3
 
 export default function Home({ data }) {
   return (
