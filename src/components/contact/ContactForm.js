@@ -18,6 +18,7 @@ import bridge from '../../images/team.png'
 
 const validate = values => {
   const errors = {};
+  const errorsArr = [];
       if (!values.name) {
         errors.name = 'Wymagane imie';
       } else if (values.name.length < 3) {
@@ -40,7 +41,9 @@ const validate = values => {
         errors.email = 'Wymagana wiadmość';
       }
 
-  return errors;
+      Object.entries(errors).map((error) => errorsArr.push(error))
+
+  return errorsArr;
 };
 
 const ContactForm = () => {
@@ -50,6 +53,8 @@ const ContactForm = () => {
   const [topic, setTopic] = useState('');
   const [name, setName] = useState('');
   const [isSend, setIsSend] = useState(false);
+  const [isAnyError, setIsAnyError] = useState(false);
+
 
   const handleSubmit = (values) => {
     try {
@@ -81,18 +86,22 @@ const ContactForm = () => {
     },
   })
 
+    console.log(formik.errors)
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <Flex direction={['column', 'column', 'column', 'row']} align='center' justify='center' gap='5rem' fontFamily='paragraph' mt='6rem'>
           <Image src={bridge} width={['lg','xl','2xl']}/>
           <Stack spacing={3} w='100%' maxW='540px'>
-            <Input id='name' onChange={formik.handleChange} value={formik.values.name} placeholder='Imie*' size='md' bg='#F7F7F7' borderRight={['1', '1' ,'0']} />
-            <Input id='email' onChange={formik.handleChange} value={formik.values.email} placeholder='Email*' size='md' bg='#F7F7F7' borderRight={['1', '1' ,'0']} />
-            <Input id='topic' onChange={formik.handleChange} value={formik.values.topic} placeholder='Temat*' size='md' bg='#F7F7F7' borderRight={['1', '1' ,'0']} />
+            <Flex direction='column' gap='1.5rem'>
+            <Input id='name' onChange={formik.handleChange} value={formik.values.name} placeholder='Imie*' size='md' bg='#F7F7F7' borderRight={['1', '1' ,'0']}/>
+            <Input id='email' onChange={formik.handleChange} value={formik.values.email} placeholder='Email*' size='md' bg='#F7F7F7' borderRight={['1', '1' ,'0']}/>
+            <Input id='topic' onChange={formik.handleChange} value={formik.values.topic} placeholder='Temat*' size='md' bg='#F7F7F7' borderRight={['1', '1' ,'0']}/>
             <Textarea id='message' onChange={formik.handleChange} value={formik.values.message} placeholder='Wiadomość*' size='md' bg='#F7F7F7' borderRight={['1', '1' ,'0']}/>
+            </Flex>
             <Popover>
             <PopoverTrigger>
-            <Box as='button' px='7' py='2' bg='blue' color='white' onClick={() => handleSubmit()}>Wyślij</Box>
+            <Box as='button' px='7' py='3' bg='blue' color='white' onClick={() => handleSubmit()}>Wyślij</Box>
             </PopoverTrigger>
             <PopoverContent>
               <PopoverArrow />
@@ -100,7 +109,7 @@ const ContactForm = () => {
               <PopoverHeader>
                 {
                   formik.errors.length > 0 ? 
-                  (Object.entries(formik.errors).map(error => <Text color='red.400'>{error[1]}</Text>))
+                  (formik.errors.map(error => <Text color='red.400'>{error[1]}</Text>))
                   : ( <Text color='black'>Twoja wiadomość została wysłana. Dziękujemy!</Text>)
                 } 
               </PopoverHeader>

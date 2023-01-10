@@ -31,7 +31,7 @@ const Article = ({img, title, date, desc, author, avatar, to}) => {
         
             <Flex gap='5' align='flex-start' justify='flex-start' direction={['column', 'column', 'row']} h={['none','none','auto']} ref={ArticlesRef}>
                 <Box >
-                    <Image src={img} boxSize='280px' objectFit='cover'
+                    <Image src={img} boxSize='260px' objectFit='cover'
                         css='box-shadow: -17px -21px 0px 0px rgba(0,230,202,1);
                         -webkit-box-shadow: -17px -21px 0px 0px rgba(0,230,202,1);
                         -moz-box-shadow: -17px -21px 0px 0px rgba(0,230,202,1);'

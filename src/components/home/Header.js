@@ -48,7 +48,7 @@ const Header = () => {
         </Container>
       </VStack>
       <Flex align={['center', 'center', 'center', 'flex-start']} justify={['center', 'center', 'center', 'flex-start']} mt='5'>
-      <Box w={['md', 'md', 'xl', 'xl', '3xl']}>
+      <Box w={['md', 'md', 'lg', 'lg', '2xl']}>
         <Image src='https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1402&q=80'
           css='box-shadow: -27px -27px 0px 0px rgba(0,230,202,1);
           // -webkit-box-shadow: -27px -27px 0px 0px rgba(0,230,202,1);

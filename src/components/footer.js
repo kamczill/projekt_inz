@@ -12,7 +12,7 @@ import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <Flex direction={['column-reverse', 'column-reverse', 'column-reverse', 'row']} justify={['space-between']} align={['center', 'center', 'center', 'flex-start']}  gap='5rem' mt='100px' pt='30px'  borderTop='1px solid #161B3D'>
+    <Flex direction={['column-reverse', 'column-reverse', 'column-reverse', 'row']} justify={['center']} align={['center', 'center', 'center', 'flex-start']}  gap='5rem' mt='100px' pt='30px'  borderTop='1px solid #161B3D'>
         <Flex direction='column' align='center' maxWidth='370px' gap='5' mb='10'>
             <Heading fontFamily='logo'>PROJEKT JKS</Heading>
             <Text fontFamily='paragraph' color='gray.600' align='center'>

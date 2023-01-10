@@ -51,12 +51,12 @@ const aboutRef = useRef();
         <Flex direction={['column', 'row']} gap='20' align='center'>
             <Feature 
                 icon={icons.map}
-                title='Adres Fizyczny'
+                title='Adres'
                 desc={'ul. Podchorążych 2 30-084 Kraków'}
             />
             <Feature 
                 icon={icons.mail}
-                title='Adres Mailowy'
+                title='E-mail'
                 desc='kontakt@projektjks.pl'
             />
             <Feature 
