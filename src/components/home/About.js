@@ -59,7 +59,7 @@ const About = () => {
     <Flex align='center' justify='center' mt='100' mr={['0', '0', '400']} >
         <Box display={['none', 'none', 'block']} ref={ref}> 
             <Image src='https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80' w='lg' h='xl' objectFit='cover' boxShadow='1px 8px 29px -9px rgba(66, 68, 90, 1)'/>
-            <GatsbyImage image='../images/team.png' />
+            <Image image='../images/team.png' />
         </Box>
         <Box pos='relative' ref={aboutRef}>
                 <Box pos={['block', 'block','absolute']} top='-120' left='-20' w={['100%', '100%', '400px', '500px', '600px', '760px']} >
