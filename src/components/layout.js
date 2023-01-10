@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-    <Box w='100%' maxWidth='1640px' px='2' align='center' justify='center' mx='auto'>
+    <Box w='100%' maxWidth='1640px' align='center' justify='center' mx='auto'>
       <Navbar/>
         {children}
         <Footer/>
