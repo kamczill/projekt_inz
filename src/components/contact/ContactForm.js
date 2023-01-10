@@ -20,9 +20,9 @@ const validate = values => {
   const errors = {};
   const errorsArr = [];
       if (!values.name) {
-        errors.name = 'Wymagane imie';
+        errors.name = 'Wymagane imię';
       } else if (values.name.length < 3) {
-        errors.name = 'Imie musi mieć co najmniej 3 litery';
+        errors.name = 'Imię musi mieć co najmniej 3 litery';
       }
     
       if (!values.topic) {
