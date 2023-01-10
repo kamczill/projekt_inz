@@ -9,6 +9,7 @@ import Latest from "../components/home/Latest"
 import About from "../components/home/About"
 import Newsletter from "../components/home/Newsletter"
 // // WP Gatsby - Wersja 2.3.3
+// "gatsby-source-wordpress": "^7.2.0",
 
 export default function Home({ data }) {
   return (
