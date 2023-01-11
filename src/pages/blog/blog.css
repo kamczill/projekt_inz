@@ -18,6 +18,10 @@
     display: none;
 }
 
+.rmp-widgets-container{
+    display: none;
+}
+
 #right-menu {
     display: none;
 }
