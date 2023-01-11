@@ -48,29 +48,27 @@ const validate = values => {
 
 const ContactForm = () => {
 
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [topic, setTopic] = useState('');
-  const [name, setName] = useState('');
-  const [isSend, setIsSend] = useState(false);
-  const [isAnyError, setIsAnyError] = useState(false);
 
 
   const handleSubmit = (values) => {
     try {
-      console.log(values)
-      if (!isSend) {
         const docRef = addDoc(collection(database, "contact"), {
           email: values.email,
           name: values.name,
           topic: values.topic,
           message: values.message
-        });
-      }
-      setIsSend(true);
+      })
+      
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+  }
+
+  const clearValues = (values) => {
+      values.email = '';
+      values.name = '';
+      values.topic = '';
+      values.message = '';
   }
 
   const formik = useFormik({
@@ -83,6 +81,7 @@ const ContactForm = () => {
     validate,
     onSubmit: (values) => {
       handleSubmit(values);
+      formik.handleReset();
     },
   })
 
@@ -101,7 +100,7 @@ const ContactForm = () => {
             </Flex>
             <Popover>
             <PopoverTrigger>
-            <Box as='button' px='7' py='3' bg='blue' color='white' onClick={() => handleSubmit()}>Wyślij</Box>
+            <Box as='button' px='7' py='3' bg='blue' color='white' type='submit'>Wyślij</Box>
             </PopoverTrigger>
             <PopoverContent>
               <PopoverArrow />
