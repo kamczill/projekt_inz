@@ -42,6 +42,7 @@ const Form = () => {
     validate,
     onSubmit: (values) => {
       handleSubmit(values);
+      formik.handleReset();
     },
   })
 
